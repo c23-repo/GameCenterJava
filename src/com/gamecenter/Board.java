@@ -1,5 +1,6 @@
 
 package com.gamecenter;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,20 +25,21 @@ public class Board extends JPanel {
             add(buttons[i]);
         }
     }
-    public  class ButtonListener implements ActionListener {
+
+    public class ButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
         }
     }
 
-
-public static void main(String[] args)
-        {
+/*
+    public static void main(String[] args) {
         JFrame window = new JFrame("Board");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().add(new Board());
-        window.setBounds(300,200,300,300);
+        window.setBounds(300, 200, 300, 300);
         window.setVisible(true);
-        }
+    }
+*/
 
-        }
+}
