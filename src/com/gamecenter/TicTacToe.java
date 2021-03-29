@@ -22,8 +22,12 @@ public class TicTacToe extends Board{
             }else {
                 buttonClicked.setText("O");
             }
-            if (checkWin()==true){
-                JOptionPane.showConfirmDialog(null,"Game-Over", "Gameover", JOptionPane.YES_NO_OPTION);
+            if (checkWin()==true && (alternate % 2==0)){
+                JOptionPane.showConfirmDialog(null,"GameOver - Player 1 won", "Game-Over", JOptionPane.YES_NO_OPTION);
+                resetButtons();
+            }
+            else if (checkWin()==true && (!(alternate % 2==0))){
+                JOptionPane.showConfirmDialog(null,"GameOver - Player 2 won", "Game-Over", JOptionPane.YES_NO_OPTION);
                 resetButtons();
             }
             else if(checkDraw()==true){
