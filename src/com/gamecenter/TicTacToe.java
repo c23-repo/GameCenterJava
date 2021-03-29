@@ -6,9 +6,7 @@ import java.awt.event.ActionListener;
 
 public class TicTacToe extends Board{
     TicTacToeButtonListener tacListener = new TicTacToeButtonListener();
-
     int alternate = 0;
-    int count = 0;
 
     private TicTacToe(){
         setTicTacToe_Listener();
@@ -16,6 +14,9 @@ public class TicTacToe extends Board{
     public  class TicTacToeButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
+            if(!buttonClicked.getText().equals("")){
+                alternate -=1;
+            }
             if (alternate % 2 ==0){
                 buttonClicked.setText("X");
             }else {
@@ -23,10 +24,13 @@ public class TicTacToe extends Board{
             }
             if (checkWin()==true){
                 JOptionPane.showConfirmDialog(null,"Game-Over", "Gameover", JOptionPane.YES_NO_OPTION);
-                reSetButtons();
+                resetButtons();
+            }
+            else if(checkDraw()==true){
+                JOptionPane.showMessageDialog(null,"draw.");
+                resetButtons();
             }
             alternate++;
-            count++;
         }
     }
     public void setTicTacToe_Listener(){
@@ -35,12 +39,14 @@ public class TicTacToe extends Board{
             button.addActionListener(tacListener);
         }
     }
-    public void reSetButtons(){
+    public void resetButtons(){
         for (JButton button: buttons
              ) {
             button.setText("");
         }
+        alternate=0;
     }
+
     public boolean checkWin() {
         //horizontal wins
         if (winLogic(0, 1, 2)) {
@@ -63,11 +69,18 @@ public class TicTacToe extends Board{
             return true;
         }else if (winLogic(2, 4, 6)){
             return true;
-        }else if(count==8) {
-            JOptionPane.showMessageDialog(null,"draw.");
-
         }
+
         return false;
+    }
+    public boolean checkDraw (){
+        if( !buttons[0].getText().equals("") && !buttons[1].getText().equals("") && !buttons[2].getText().equals("") && !buttons[3].getText().equals("") &&
+                !buttons[4].getText().equals("") && !buttons[5].getText().equals("") && !buttons[6].getText().equals("") && !buttons[7].getText().equals("") &&
+                !buttons[8].getText().equals("")){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public boolean winLogic(int a, int b, int c){
