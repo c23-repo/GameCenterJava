@@ -4,11 +4,9 @@ package com.gamecenter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.*;
-//import javax.swing.plaf.basic.BasicOptionPaneUI;
 
 
 public class Board extends JPanel {
