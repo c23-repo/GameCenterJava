@@ -60,7 +60,7 @@ public class GameCenter extends JPanel {
     public static void main(String[] args) {
         JFrame window = new JFrame("GameCenter");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().add(new GameCenter());
+        window.getContentPane().add(new GameCenter()).setBackground(Color.CYAN);
         window.setBounds(300, 300, 420, 150);
         window.setVisible(true);
     }
