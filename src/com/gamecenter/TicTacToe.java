@@ -14,8 +14,8 @@ public class TicTacToe extends Board{
     public  class TicTacToeButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
-            String s = "";
-            if(!buttonClicked.getText().equals(s)){
+
+            if(!buttonClicked.getText().equals("")){
                 alternate -=1;
             }
             if (alternate % 2 ==0 && !buttonClicked.getText().equals("O")){
