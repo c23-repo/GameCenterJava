@@ -14,7 +14,7 @@ public class GameCenter extends JPanel {
     TileListener tileListen = new TileListener();
 
     int gridSquares = 2;
-    List<JButton> gamebuttons = Arrays.asList(new JButton[2]);
+    List<JButton> gameButtons = Arrays.asList(new JButton[2]);
 
     public GameCenter(){
         initializeButtons();
@@ -22,40 +22,40 @@ public class GameCenter extends JPanel {
     }
 
     public void addValuesToButtons(){
-        gamebuttons.get(0).setText("Tic-Tac-Toe");
-        gamebuttons.get(1).setText("Number-Slide-Puzzle");
+        gameButtons.get(0).setText("Tic-Tac-Toe");
+        gameButtons.get(1).setText("Number-Slide-Puzzle");
 
     }
     private void initializeButtons() {
         JLabel intro = new JLabel("Please Choose A Game To Play");
         intro.setFont(new Font("Arial", Font.BOLD, 25));
         add(intro);
-        for (int i = 0; i <= gamebuttons.size() - 1; i++) {
-            gamebuttons.set(i, new JButton());
-            gamebuttons.get(i).setFont(new Font("Arial", Font.BOLD, 20));
-            add(gamebuttons.get(i));
+        for (int i = 0; i <= gameButtons.size() - 1; i++) {
+            gameButtons.set(i, new JButton());
+            gameButtons.get(i).setFont(new Font("Arial", Font.BOLD, 20));
+            add(gameButtons.get(i));
         }
-        gamebuttons.get(0).addActionListener(ticListen);
-        gamebuttons.get(1).addActionListener(tileListen);
+        gameButtons.get(0).addActionListener(ticListen);
+        gameButtons.get(1).addActionListener(tileListen);
     }
     public class TicListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
-            JFrame twindow = new JFrame("Tic-Tac-Toe");
-            twindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            twindow.getContentPane().add(new TicTacToe());
-            twindow.setBounds(300, 100, 500, 500);
-            twindow.setVisible(true);
+            JFrame tWindow = new JFrame("Tic-Tac-Toe");
+            tWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            tWindow.getContentPane().add(new TicTacToe());
+            tWindow.setBounds(300, 100, 500, 500);
+            tWindow.setVisible(true);
         }
     }
     public class TileListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
-            JFrame swindow = new JFrame("Tile-Slide");
-            swindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            swindow.getContentPane().add(new TileSlide());
-            swindow.setBounds(300, 100, 500, 500);
-            swindow.setVisible(true);
+            JFrame sWindow = new JFrame("Tile-Slide");
+            sWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            sWindow.getContentPane().add(new TileSlide());
+            sWindow.setBounds(300, 100, 500, 500);
+            sWindow.setVisible(true);
         }
     }
     public static void main(String[] args) {
