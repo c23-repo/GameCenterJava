@@ -37,7 +37,7 @@ public class GameCenter extends JPanel {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
             JFrame twindow = new JFrame("Tic-Tac-Toe");
-            twindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            twindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             twindow.getContentPane().add(new TicTacToe());
             twindow.setBounds(300, 200, 300, 300);
             twindow.setVisible(true);
@@ -47,7 +47,7 @@ public class GameCenter extends JPanel {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
             JFrame swindow = new JFrame("Tile-Slide");
-            swindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            swindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             swindow.getContentPane().add(new TileSlide());
             swindow.setBounds(300, 200, 300, 300);
             swindow.setVisible(true);
