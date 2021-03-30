@@ -9,17 +9,18 @@ public class TicTacToe extends Board{
     int alternate = 0;
 
     private TicTacToe(){
-        setTicTacToe_Listener();
+        setTicTacToeListener();
     }
     public  class TicTacToeButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
-            if(!buttonClicked.getText().equals("")){
+            String s = "";
+            if(!buttonClicked.getText().equals(s)){
                 alternate -=1;
             }
-            if (alternate % 2 ==0){
+            if (alternate % 2 ==0 && !buttonClicked.getText().equals("O")){
                 buttonClicked.setText("X");
-            }else {
+            }if(alternate %2 != 0 && !buttonClicked.getText().equals("X")) {
                 buttonClicked.setText("O");
             }
             if (checkWin()==true && (alternate % 2==0)){
@@ -37,7 +38,7 @@ public class TicTacToe extends Board{
             alternate++;
         }
     }
-    public void setTicTacToe_Listener(){
+    public void setTicTacToeListener(){
         for (JButton button:buttons
              ) {
             button.addActionListener(tacListener);
@@ -61,7 +62,7 @@ public class TicTacToe extends Board{
             return true;
         }
         //vertical wins
-        else if (winLogic(3, 3, 6)){
+        else if (winLogic(0, 3, 6)){
             return true;
         }else if (winLogic(1, 4, 7)){
             return true;
@@ -78,9 +79,10 @@ public class TicTacToe extends Board{
         return false;
     }
     public boolean checkDraw (){
-        if( !buttons[0].getText().equals("") && !buttons[1].getText().equals("") && !buttons[2].getText().equals("") && !buttons[3].getText().equals("") &&
-                !buttons[4].getText().equals("") && !buttons[5].getText().equals("") && !buttons[6].getText().equals("") && !buttons[7].getText().equals("") &&
-                !buttons[8].getText().equals("")){
+
+        if( !buttons.get(0).getText().equals("") && !buttons.get(1).getText().equals("") && !buttons.get(2).getText().equals("") && !buttons.get(3).getText().equals("") &&
+                !buttons.get(4).getText().equals("") && !buttons.get(5).getText().equals("") && !buttons.get(6).getText().equals("") && !buttons.get(7).getText().equals("") &&
+                !buttons.get(8).getText().equals("")){
             return true;
         }else {
             return false;
@@ -89,14 +91,15 @@ public class TicTacToe extends Board{
 
     public boolean winLogic(int a, int b, int c){
 
-        if (buttons[a].getText().equals(buttons[b].getText())
-                && buttons[b].getText().equals(buttons[c].getText())
-                && !buttons[a].getText().equals("")) {
+        if (buttons.get(a).getText().equals(buttons.get(b).getText())
+                && buttons.get(b).getText().equals(buttons.get(c).getText())
+                && !buttons.get(a).getText().equals("")) {
             return true;
         }else {
             return false;
         }
     }
+    //Todo
     public static void main(String[] args) {
       JFrame window = new JFrame("TicTacToe");
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
