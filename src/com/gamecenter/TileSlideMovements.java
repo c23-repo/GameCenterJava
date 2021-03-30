@@ -1,6 +1,7 @@
 package com.gamecenter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,11 +13,11 @@ class TileSlideMovements {
     int key;
     public static final int GRID_TILES = 9;
     public static final int GRID_WIDTH_LENGTH = 3;
-    List<Integer> board = new ArrayList<>(GRID_TILES);
-    //    Map<Integer, List<Integer>> validMovementMap = new HashMap<>();
+    private final List<Integer> board = Arrays.asList(new Integer[GRID_TILES]);
     public static List<ArrayList<Integer>> validMovementArray = new ArrayList<>();
 
     // CONSTRUCTORS
+
     /**
      * Upon instantiation, constructor generates all of the valid movements of a given index
      */
@@ -25,6 +26,7 @@ class TileSlideMovements {
     }
 
     // METHODS
+
     /**
      * Dynamically generates all of the valid vertical and horizontal movements for a given index in the array.
      * Implementation works for any size perfect square i.e. 3x3, 4x4, 5x5, etc....
@@ -76,7 +78,7 @@ class TileSlideMovements {
      * Checks if the attempted valid movement is legal. The movement must be made with an index
      * that contains the value zero.
      *
-     * @param index takes in the index of the selected tile for lookup of its valid movements
+     * @param index     takes in the index of the selected tile for lookup of its valid movements
      * @param emptyTile index of the value zero
      * @return boolean confirming islegal move and to interchange or leave alone.
      */
