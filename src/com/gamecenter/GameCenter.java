@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameCenter extends JPanel {
- //   TicTacToe tic = new TicTacToe();
 
     TicListener ticListen = new TicListener();
     TileListener tileListen = new TileListener();
