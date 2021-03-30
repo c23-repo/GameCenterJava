@@ -8,7 +8,7 @@ public class TicTacToe extends Board{
     TicTacToeButtonListener tacListener = new TicTacToeButtonListener();
     int alternate = 0;
 
-    private TicTacToe(){
+    public TicTacToe(){
         setTicTacToeListener();
     }
     public  class TicTacToeButtonListener implements ActionListener {
