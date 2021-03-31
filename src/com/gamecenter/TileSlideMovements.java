@@ -1,28 +1,25 @@
 package com.gamecenter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * This Class is for use with the TileSlide Class. It's purpose is to dynamically generate valid and legal movements
  * board games that involve a perfect square that has one missing tile for rearrangement of order.
  */
-class TileSlideMovements {
-
-    int key;
-    public static final int GRID_TILES = 9;
-    public static final int GRID_WIDTH_LENGTH = 3;
-    private final List<Integer> board = Arrays.asList(new Integer[GRID_TILES]);
-    //TODO List<List<
-    public static List<ArrayList<Integer>> validMovementArray = new ArrayList<>();
+class TileSlideMovements extends TileSlideSubMenu {
+    int gridTiles;
+    int gridWidthLength;
+    public static List<List<Integer>> validMovementArray = new ArrayList<>();
 
     // CONSTRUCTORS
 
     /**
      * Upon instantiation, constructor generates all of the valid movements of a given index
      */
-    TileSlideMovements() {
+    TileSlideMovements(int gridWxL) {
+        this.gridTiles = (gridWxL * gridWxL);
+        this.gridWidthLength = gridWxL;
         setValidMovementArray(generateAllValidMovements());
     }
 
@@ -35,24 +32,23 @@ class TileSlideMovements {
      * @param index the given index in the array for which to set the valid movements
      * @return an array list with all the valid movements
      */
-    //TODO List on Left not ArrayList
-    private ArrayList<Integer> setValidMovement(int index) {
-        ArrayList<Integer> moves = new ArrayList<>();
-        int maxIndex = GRID_WIDTH_LENGTH - 1;
-        int upIndex = index - GRID_WIDTH_LENGTH;
-        int downIndex = index + GRID_WIDTH_LENGTH;
+    private List<Integer> setValidMovement(int index) {
+        List<Integer> moves = new ArrayList<>();
+        int maxIndex = gridWidthLength - 1;
+        int upIndex = index - gridWidthLength;
+        int downIndex = index + gridWidthLength;
 
         // Vertical Movement
-        if (downIndex < (GRID_TILES) && downIndex >= 0) {
+        if (downIndex < (gridTiles) && downIndex >= 0) {
             moves.add(downIndex);
         }
-        if (upIndex < (GRID_TILES) && upIndex >= 0) {
+        if (upIndex < (gridTiles) && upIndex >= 0) {
             moves.add(upIndex);
         }
         // Horizontal Movement
-        if ((index % GRID_WIDTH_LENGTH) == 0) {
+        if ((index % gridWidthLength) == 0) {
             moves.add(index + 1);
-        } else if ((index % GRID_WIDTH_LENGTH) == maxIndex) {
+        } else if ((index % gridWidthLength) == maxIndex) {
             moves.add(index - 1);
         } else {
             moves.add(index + 1);
@@ -67,9 +63,9 @@ class TileSlideMovements {
      *
      * @return List of ArrayList with all the valid movements for a given index
      */
-    private List<ArrayList<Integer>> generateAllValidMovements() {
-        List<ArrayList<Integer>> allMoves = new ArrayList<>();
-        for (int index = 0; index < (GRID_TILES); index++) {
+    private List<List<Integer>> generateAllValidMovements() {
+        List<List<Integer>> allMoves = new ArrayList<>();
+        for (int index = 0; index < (gridTiles); index++) {
 //            new TileSlideMovements(index);
             allMoves.add(setValidMovement(index));
         }
@@ -85,33 +81,16 @@ class TileSlideMovements {
      * @return boolean confirming islegal move and to interchange or leave alone.
      */
     public boolean confirmLegalMovement(int index, int emptyTile) {
-//        return validMovementMap.containsKey(index) && validMovementMap.containsValue(emptyTile);
         return getValidMovementArray(index).contains(emptyTile);
     }
 
-    /**
-     * Searches the array for the value zero
-     *
-     * @return returns the index that holds the value zero
-     */
-    public int getBlankTile() {
-        return board.indexOf(0);
-    }
-
     // ACCESSOR METHODS
-    private int getKey() {
-        return key;
-    }
-
-    private void setKey(int key) {
-        this.key = key;
-    }
-
-    private ArrayList<Integer> getValidMovementArray(int key) {
+    private List<Integer> getValidMovementArray(int key) {
         return validMovementArray.get(key);
     }
 
-    private void setValidMovementArray(List<ArrayList<Integer>> validMovementArray) {
+    private void setValidMovementArray(List<List<Integer>> validMovementArray) {
         TileSlideMovements.validMovementArray = validMovementArray;
     }
+
 }

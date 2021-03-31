@@ -1,23 +1,28 @@
-
 package com.gamecenter;
 
+
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
-import javax.swing.*;
+
+import static com.gamecenter.SizeEnum.THREES;
+
 
 
 public class Board extends JPanel {
 
-
-    int gridSquares = 9;
-    List<JButton> buttons = Arrays.asList(new JButton[gridSquares]);
-
+    List<JButton> buttons;
 
     public Board() {
-        setLayout(new GridLayout(3, 3));
+        setLayout(new GridLayout(THREES.squareWidthHeight(), THREES.squareWidthHeight()));
+        buttons = Arrays.asList(new JButton[THREES.perfectSquareSize()]);
+        initializeButtons();
+    }
+
+    public Board(int layoutSize) {
+        buttons = Arrays.asList(new JButton[(layoutSize * layoutSize)]);
+        setLayout(new GridLayout(layoutSize, layoutSize));
         initializeButtons();
     }
 
