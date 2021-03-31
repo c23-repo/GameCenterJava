@@ -1,11 +1,13 @@
 package com.gamecenter;
 
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.gamecenter.SizeEnum.THREES;
+
 
 
 public class Board extends JPanel {

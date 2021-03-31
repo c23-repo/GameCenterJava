@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class TicTacToe extends Board {
     TicTacToeButtonListener tacListener = new TicTacToeButtonListener();
     int alternate = 0;
@@ -53,6 +54,7 @@ public class TicTacToe extends Board {
         }
     }
 
+
     private void resetButtons() {
         for (JButton button : buttons
         ) {
@@ -88,8 +90,8 @@ public class TicTacToe extends Board {
         return false;
     }
 
-    private boolean checkDraw() {
-        return (!buttons.get(0).getText().equals("") && !buttons.get(1).getText().equals("") && !buttons.get(2).getText().equals("") && !buttons.get(3).getText().equals("") &&
+    private boolean checkDraw (){
+        return ( !buttons.get(0).getText().equals("") && !buttons.get(1).getText().equals("") && !buttons.get(2).getText().equals("") && !buttons.get(3).getText().equals("") &&
                 !buttons.get(4).getText().equals("") && !buttons.get(5).getText().equals("") && !buttons.get(6).getText().equals("") && !buttons.get(7).getText().equals("") &&
                 !buttons.get(8).getText().equals(""));
     }

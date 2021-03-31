@@ -15,10 +15,12 @@ public class GameCenter extends JPanel {
     int gridSquares = 2;
     List<JButton> gameButtons = Arrays.asList(new JButton[gridSquares]);
 
+
     public GameCenter() {
         initializeButtons();
         addValuesToButtons();
     }
+
 
     private void addValuesToButtons() {
         gameButtons.get(0).setText("Tic-Tac-Toe");
@@ -41,7 +43,6 @@ public class GameCenter extends JPanel {
 
     private static class TicListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            JButton buttonClicked = (JButton) e.getSource();
             JFrame tWindow = new JFrame("Tic-Tac-Toe");
             tWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             tWindow.getContentPane().add(new TicTacToe());
