@@ -25,14 +25,7 @@ public class Board extends JPanel {
             buttons.set(i, new JButton());
             buttons.get(i).setText("");
             buttons.get(i).setFont(new Font("Arial", Font.BOLD, 50));
-            buttons.get(i).addActionListener(new ButtonListener());
             add(buttons.get(i));
-        }
-    }
-
-    public class ButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            JButton buttonClicked = (JButton) e.getSource();
         }
     }
 
