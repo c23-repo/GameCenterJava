@@ -11,8 +11,9 @@ import javax.swing.*;
 
 public class Board extends JPanel {
 
+
     int gridSquares = 9;
-    List<JButton> buttons = Arrays.asList(new JButton[9]);
+    List<JButton> buttons = Arrays.asList(new JButton[gridSquares]);
 
 
     public Board() {
