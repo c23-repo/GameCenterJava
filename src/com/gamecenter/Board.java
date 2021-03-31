@@ -1,22 +1,26 @@
-
 package com.gamecenter;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.List;
-import javax.swing.*;
+
+import static com.gamecenter.SizeEnum.THREES;
 
 
 public class Board extends JPanel {
 
-    int gridSquares = 9;
-    List<JButton> buttons = Arrays.asList(new JButton[9]);
-
+    List<JButton> buttons;
 
     public Board() {
-        setLayout(new GridLayout(3, 3));
+        setLayout(new GridLayout(THREES.squareWidthHeight(), THREES.squareWidthHeight()));
+        buttons = Arrays.asList(new JButton[THREES.perfectSquareSize()]);
+        initializeButtons();
+    }
+
+    public Board(int layoutSize) {
+        buttons = Arrays.asList(new JButton[(layoutSize * layoutSize)]);
+        setLayout(new GridLayout(layoutSize, layoutSize));
         initializeButtons();
     }
 
@@ -25,14 +29,7 @@ public class Board extends JPanel {
             buttons.set(i, new JButton());
             buttons.get(i).setText("");
             buttons.get(i).setFont(new Font("Arial", Font.BOLD, 50));
-            buttons.get(i).addActionListener(new ButtonListener());
             add(buttons.get(i));
-        }
-    }
-
-    public class ButtonListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            JButton buttonClicked = (JButton) e.getSource();
         }
     }
 

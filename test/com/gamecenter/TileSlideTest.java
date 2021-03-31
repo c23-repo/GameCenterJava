@@ -15,27 +15,26 @@ public class TileSlideTest {
 
     @Before
     public void setUp() throws Exception {
-        tSM = new TileSlideMovements();
+        tSM = new TileSlideMovements(5);
     }
 
     @Test
-    public void fillRandArr(){
-            int random = (int) Math.floor(Math.random() * 9);
-            board.add(random);
-            while (board.size() < 9){
-                random = (int) Math.floor(Math.random() * 9);
-                if (!board.contains(random)){
-                    board.add(random);
-                }
+    public void fillRandArr() {
+        int random = (int) Math.floor(Math.random() * 9);
+        board.add(random);
+        while (board.size() < 9) {
+            random = (int) Math.floor(Math.random() * 9);
+            if (!board.contains(random)) {
+                board.add(random);
             }
+        }
 
         System.out.println(board);
     }
 
     @Test
-    public void getValidMovesArrTest(){
+    public void getValidMovesArrTest() {
 
         System.out.println(TileSlideMovements.validMovementArray.toString());
     }
-
 }

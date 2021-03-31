@@ -4,108 +4,100 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TicTacToe extends Board{
+public class TicTacToe extends Board {
     TicTacToeButtonListener tacListener = new TicTacToeButtonListener();
     int alternate = 0;
+    private static final String GAME_OVER = "GameOver ";
+    private static final String PLAYER_1 = "Player 1 ";
+    private static final String PLAYER_2 = "Player 2 ";
+    private static final String DRAW = "the game ended in a draw ";
 
-    public TicTacToe(){
+    public TicTacToe() {
         setTicTacToeListener();
     }
-    public  class TicTacToeButtonListener implements ActionListener {
+
+    private class TicTacToeButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
 
-            if(!buttonClicked.getText().equals("")){
-                alternate -=1;
+            if (!buttonClicked.getText().equals("")) {
+                alternate -= 1;
             }
-            if (alternate % 2 ==0 && !buttonClicked.getText().equals("O")){
+            if (alternate % 2 == 0 && !buttonClicked.getText().equals("O")) {
                 buttonClicked.setText("X");
-            }if(alternate %2 != 0 && !buttonClicked.getText().equals("X")) {
+            }
+            if (alternate % 2 != 0 && !buttonClicked.getText().equals("X")) {
                 buttonClicked.setText("O");
             }
-            if (checkWin()==true && (alternate % 2==0)){
-                JOptionPane.showConfirmDialog(null,"GameOver - Player 1 won", "Game-Over", JOptionPane.YES_NO_OPTION);
+
+            if (checkWin() && (alternate % 2 == 0)) {
+                //  JOptionPane.showConfirmDialog(null,GAME_OVER+PLAYER_1+": Won", "Game-Over", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(null, GAME_OVER + PLAYER_1 + "won");
                 resetButtons();
-            }
-            else if (checkWin()==true && (!(alternate % 2==0))){
-                JOptionPane.showConfirmDialog(null,"GameOver - Player 2 won", "Game-Over", JOptionPane.YES_NO_OPTION);
+            } else if (checkWin() && (!(alternate % 2 == 0))) {
+                // JOptionPane.showConfirmDialog(null,GAME_OVER+PLAYER_2+": Won", "Game-Over", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(null, GAME_OVER + PLAYER_2 + "won");
                 resetButtons();
-            }
-            else if(checkDraw()==true){
-                JOptionPane.showMessageDialog(null,"draw.");
+            } else if (checkDraw()) {
+                JOptionPane.showMessageDialog(null, DRAW + "no one won");
                 resetButtons();
             }
             alternate++;
         }
     }
-    public void setTicTacToeListener(){
-        for (JButton button:buttons
-             ) {
+
+    private void setTicTacToeListener() {
+        for (JButton button : buttons
+        ) {
             button.addActionListener(tacListener);
         }
     }
-    public void resetButtons(){
-        for (JButton button: buttons
-             ) {
+
+    private void resetButtons() {
+        for (JButton button : buttons
+        ) {
             button.setText("");
         }
-        alternate=0;
+        alternate = 0;
     }
 
-    public boolean checkWin() {
+    private boolean checkWin() {
         //horizontal wins
         if (winLogic(0, 1, 2)) {
             return true;
-        } else if (winLogic(3, 4, 5)){
+        } else if (winLogic(3, 4, 5)) {
             return true;
-        }else if (winLogic(6, 7, 8)){
+        } else if (winLogic(6, 7, 8)) {
             return true;
         }
         //vertical wins
-        else if (winLogic(0, 3, 6)){
+        else if (winLogic(0, 3, 6)) {
             return true;
-        }else if (winLogic(1, 4, 7)){
+        } else if (winLogic(1, 4, 7)) {
             return true;
-        }else if (winLogic(2, 5, 8)){
+        } else if (winLogic(2, 5, 8)) {
             return true;
         }
         //diagonal wins
-        else if (winLogic(0, 4, 8)){
+        else if (winLogic(0, 4, 8)) {
             return true;
-        }else if (winLogic(2, 4, 6)){
+        } else if (winLogic(2, 4, 6)) {
             return true;
         }
 
         return false;
     }
-    public boolean checkDraw (){
 
-        if( !buttons.get(0).getText().equals("") && !buttons.get(1).getText().equals("") && !buttons.get(2).getText().equals("") && !buttons.get(3).getText().equals("") &&
+    private boolean checkDraw() {
+        return (!buttons.get(0).getText().equals("") && !buttons.get(1).getText().equals("") && !buttons.get(2).getText().equals("") && !buttons.get(3).getText().equals("") &&
                 !buttons.get(4).getText().equals("") && !buttons.get(5).getText().equals("") && !buttons.get(6).getText().equals("") && !buttons.get(7).getText().equals("") &&
-                !buttons.get(8).getText().equals("")){
-            return true;
-        }else {
-            return false;
-        }
+                !buttons.get(8).getText().equals(""));
     }
 
-    public boolean winLogic(int a, int b, int c){
-
-        if (buttons.get(a).getText().equals(buttons.get(b).getText())
+    private boolean winLogic(int a, int b, int c) {
+        return (buttons.get(a).getText().equals(buttons.get(b).getText())
                 && buttons.get(b).getText().equals(buttons.get(c).getText())
-                && !buttons.get(a).getText().equals("")) {
-            return true;
-        }else {
-            return false;
-        }
-    }
-    //Todo
-    public static void main(String[] args) {
-      JFrame window = new JFrame("TicTacToe");
-      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      window.getContentPane().add(new TicTacToe());
-      window.setBounds(300, 200, 300, 300);
-      window.setVisible(true);
+                && !buttons.get(a).getText().equals(""));
     }
 
 }

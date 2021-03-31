@@ -13,18 +13,19 @@ public class GameCenter extends JPanel {
     TileListener tileListen = new TileListener();
 
     int gridSquares = 2;
-    List<JButton> gameButtons = Arrays.asList(new JButton[2]);
+    List<JButton> gameButtons = Arrays.asList(new JButton[gridSquares]);
 
-    public GameCenter(){
+    public GameCenter() {
         initializeButtons();
         addValuesToButtons();
     }
 
-    public void addValuesToButtons(){
+    private void addValuesToButtons() {
         gameButtons.get(0).setText("Tic-Tac-Toe");
         gameButtons.get(1).setText("Number-Slide-Puzzle");
 
     }
+
     private void initializeButtons() {
         JLabel intro = new JLabel("Please Choose A Game To Play");
         intro.setFont(new Font("Arial", Font.BOLD, 25));
@@ -37,7 +38,8 @@ public class GameCenter extends JPanel {
         gameButtons.get(0).addActionListener(ticListen);
         gameButtons.get(1).addActionListener(tileListen);
     }
-    public class TicListener implements ActionListener {
+
+    private static class TicListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
             JFrame tWindow = new JFrame("Tic-Tac-Toe");
@@ -47,20 +49,22 @@ public class GameCenter extends JPanel {
             tWindow.setVisible(true);
         }
     }
-    public class TileListener implements ActionListener {
+
+    private static class TileListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JButton buttonClicked = (JButton) e.getSource();
-            JFrame sWindow = new JFrame("Tile-Slide");
+            JFrame sWindow = new JFrame("TTile-Slide-Size-Select");
             sWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            sWindow.getContentPane().add(new TileSlide());
+            sWindow.getContentPane().add(new TileSlideSubMenu());
             sWindow.setBounds(300, 100, 500, 500);
             sWindow.setVisible(true);
         }
     }
+
     public static void main(String[] args) {
         JFrame window = new JFrame("GameCenter");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().add(new GameCenter());
+        window.getContentPane().add(new GameCenter()).setBackground(Color.CYAN);
         window.setBounds(300, 300, 420, 150);
         window.setVisible(true);
     }
