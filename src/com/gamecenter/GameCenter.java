@@ -39,7 +39,6 @@ public class GameCenter extends JPanel {
     }
     public class TicListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            JButton buttonClicked = (JButton) e.getSource();
             JFrame tWindow = new JFrame("Tic-Tac-Toe");
             tWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             tWindow.getContentPane().add(new TicTacToe());
@@ -49,7 +48,6 @@ public class GameCenter extends JPanel {
     }
     public class TileListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            JButton buttonClicked = (JButton) e.getSource();
             JFrame sWindow = new JFrame("Tile-Slide");
             sWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             sWindow.getContentPane().add(new TileSlide());
