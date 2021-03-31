@@ -14,6 +14,7 @@ class TileSlideMovements {
     public static final int GRID_TILES = 9;
     public static final int GRID_WIDTH_LENGTH = 3;
     private final List<Integer> board = Arrays.asList(new Integer[GRID_TILES]);
+    //TODO List<List<
     public static List<ArrayList<Integer>> validMovementArray = new ArrayList<>();
 
     // CONSTRUCTORS
@@ -34,6 +35,7 @@ class TileSlideMovements {
      * @param index the given index in the array for which to set the valid movements
      * @return an array list with all the valid movements
      */
+    //TODO List on Left not ArrayList
     private ArrayList<Integer> setValidMovement(int index) {
         ArrayList<Integer> moves = new ArrayList<>();
         int maxIndex = GRID_WIDTH_LENGTH - 1;

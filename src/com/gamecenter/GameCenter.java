@@ -13,14 +13,14 @@ public class GameCenter extends JPanel {
     TileListener tileListen = new TileListener();
 
     int gridSquares = 2;
-    List<JButton> gameButtons = Arrays.asList(new JButton[2]);
+    List<JButton> gameButtons = Arrays.asList(new JButton[gridSquares]);
 
     public GameCenter(){
         initializeButtons();
         addValuesToButtons();
     }
 
-    public void addValuesToButtons(){
+    private void addValuesToButtons(){
         gameButtons.get(0).setText("Tic-Tac-Toe");
         gameButtons.get(1).setText("Number-Slide-Puzzle");
 
@@ -37,7 +37,7 @@ public class GameCenter extends JPanel {
         gameButtons.get(0).addActionListener(ticListen);
         gameButtons.get(1).addActionListener(tileListen);
     }
-    public class TicListener implements ActionListener {
+    private static class TicListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JFrame tWindow = new JFrame("Tic-Tac-Toe");
             tWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -46,7 +46,7 @@ public class GameCenter extends JPanel {
             tWindow.setVisible(true);
         }
     }
-    public class TileListener implements ActionListener {
+    private static class TileListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             JFrame sWindow = new JFrame("Tile-Slide");
             sWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
