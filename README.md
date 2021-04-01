@@ -1,12 +1,12 @@
-<p style="text-align: center;font-size:46px"> GameCenter </p>
+# GameCenter
 
-<p style="text-align: center;font-size:25px"> Game center application in java. 
-<br>Choose to play Tic-Tac-Toe or Number-Slide-Puzzle.</p>
+### Game center application in Java. 
+#### Choose to play Tic-Tac-Toe or Number-Slide-Puzzle
 
 ___
 ___
 * ## Running the GameCenter
-    In order to run GameCenter, you must open terminal (MacOS) or commandline(Windows) 
+    In order to run GameCenter, you must open terminal (macOS) or commandline(Windows) 
     and go into the folder that your gameCenter.jar file lives in. Then run the command per OS
     * ### _MacOS_
     `` Users/userName/path/toDirectory $: sh run.sh ``
@@ -31,7 +31,7 @@ ___
     (using a 3x3 board) with a blank tile in the ninth position.
     <br><br>**Objective:**<br> To solve the puzzle. You must rearrange the
     tiles to be in order from 1 to 8 starting in the upper left corner. Click on the tile 
-    that you want to move into the blank space in order to rearange the board. Upon winning,
+    that you want to move into the blank space in order to rearrange the board. Upon winning,
     your given score will be the number of moves it took you to solve the puzzle.<br><br> 
     Close the window to display the board size menu, then choose your new size board to play or close 
     that menu to go back to the **Main Menu**.
