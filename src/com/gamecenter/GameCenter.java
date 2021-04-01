@@ -56,17 +56,9 @@ public class GameCenter extends JPanel {
             JButton buttonClicked = (JButton) e.getSource();
             JFrame sWindow = new JFrame("TTile-Slide-Size-Select");
             sWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            sWindow.getContentPane().add(new TileSlideSubMenu());
-            sWindow.setBounds(300, 100, 500, 500);
+            sWindow.getContentPane().add(new TileSlideSubMenu()).setBackground(Color.CYAN);
+            sWindow.setBounds(100, 150, 450, 300);
             sWindow.setVisible(true);
         }
-    }
-
-    public static void main(String[] args) {
-        JFrame window = new JFrame("GameCenter");
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().add(new GameCenter()).setBackground(Color.CYAN);
-        window.setBounds(300, 300, 420, 150);
-        window.setVisible(true);
     }
 }

@@ -66,7 +66,6 @@ class TileSlideMovements extends TileSlideSubMenu {
     private List<List<Integer>> generateAllValidMovements() {
         List<List<Integer>> allMoves = new ArrayList<>();
         for (int index = 0; index < (gridTiles); index++) {
-//            new TileSlideMovements(index);
             allMoves.add(setValidMovement(index));
         }
         return allMoves;

@@ -48,7 +48,9 @@ class TileSlide extends Board {
      */
     private boolean isSolved() {
         for (int i = 0; i < board.size() - 2; i++) {
-            if (board.get(i) != 0 && board.get(i) != (i + 1)) {
+            if (board.get(i) != 0 && board.get(i) == (i + 1)) {
+                gameComplete = true;
+            } else {
                 gameComplete = false;
                 break;
             }
@@ -88,9 +90,8 @@ class TileSlide extends Board {
                     setButtons();
                 }
                 if (isSolved()) {
-                    JOptionPane.showConfirmDialog(null,
-                            "Congratulations! \n  You won in " + score + " moves!", "Number Slide Puzzle",
-                            JOptionPane.YES_NO_OPTION);
+                    JOptionPane.showMessageDialog(null,
+                            "Congratulations! \n  You won in " + score + " moves. Exit to play new game.");
                 }
             }
         }

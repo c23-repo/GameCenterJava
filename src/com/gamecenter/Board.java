@@ -9,8 +9,7 @@ import java.util.List;
 import static com.gamecenter.SizeEnum.THREES;
 
 
-
-public class Board extends JPanel {
+class Board extends JPanel {
 
     List<JButton> buttons;
 
